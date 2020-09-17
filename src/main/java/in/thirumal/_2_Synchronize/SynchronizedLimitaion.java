@@ -81,6 +81,13 @@ class WorkerClass {
 		}
 		list2.add(random.nextInt(100));
 	}*/
+	/**
+	 * Check the duration it takes to Complete
+	 * Disadvantage: Once, the thread enters any synchronized method on an instance, 
+	 * no other thread can enter any other synchronized method on the same instance.
+	 * 
+	 * However, non-synchronized methods on that instance will continue to be callable.
+	 */
 	/*
 	private synchronized void stageOne() {
 		try {
