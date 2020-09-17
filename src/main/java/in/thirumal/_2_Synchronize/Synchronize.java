@@ -11,6 +11,8 @@ public class Synchronize {
 
 	private int count = 0;
 	
+	//synchronized (Monitor - only one thread can own the object at a given time)
+	//Guard the state from race condition
 	private synchronized void increment() {
 		count++;
 	}
@@ -25,14 +27,14 @@ public class Synchronize {
 	private void synchronizeExample() {
 		Thread t1 = new Thread(() -> {
 			for (int i = 0; i < 100000; i++) {
-				//count++;
+				//count++;  //This will cause race condition
 				increment(); //Count++ will give wrong result, because it's not synchronized
 			}
 		});
 		
 		Thread t2 = new Thread(() -> {
 			for (int i = 0; i < 100000; i++) {
-				//count++;
+				//count++;  //This will cause race condition 
 				increment();
 			}
 		});
