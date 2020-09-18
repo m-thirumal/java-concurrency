@@ -1,7 +1,7 @@
 /**
  * 
  */
-package in.thirumal._2_Synchronize;
+package in.thirumal.t2Synchronize;
 
 import java.time.Duration;
 import java.time.LocalTime;
@@ -10,7 +10,13 @@ import java.util.List;
 import java.util.Random;
 
 /**
- * @author thirumal
+ * @author Thirumal
+ * Check the duration it takes to Complete
+ * 
+ * Disadvantage:: Once, the thread enters any synchronized method on an instance, 
+ * no other thread can enter any other synchronized method on the same instance.
+ * 
+ * However, non-synchronized methods on that instance will continue to be callable.
  *
  */
 public class SynchronizedLimitaion {

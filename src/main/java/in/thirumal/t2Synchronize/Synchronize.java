@@ -1,7 +1,7 @@
 /**
  * 
  */
-package in.thirumal._2_Synchronize;
+package in.thirumal.t2Synchronize;
 
 /**
  * @author thirumal

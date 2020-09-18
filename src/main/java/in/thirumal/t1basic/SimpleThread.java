@@ -1,7 +1,7 @@
 /**
  * 
  */
-package in.thirumal._1;
+package in.thirumal.t1basic;
 
 import java.util.stream.IntStream;
 
