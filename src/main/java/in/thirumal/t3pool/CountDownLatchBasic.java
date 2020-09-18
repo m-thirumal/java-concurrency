@@ -8,7 +8,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
- * @author thirumal
+ * @author Thirumal
  *
  */
 public class CountDownLatchBasic {
@@ -20,7 +20,7 @@ public class CountDownLatchBasic {
 		CountDownLatch countDownLatch = new CountDownLatch(3);
 
 		ExecutorService executorService = Executors.newFixedThreadPool(3);
-		for (int i = 0; i < 3; i++) {
+		for (int i = 0; i < 13; i++) {
 			executorService.execute(new Task1(countDownLatch));
 		}
 		try {
@@ -47,7 +47,7 @@ class Task1 implements Runnable {
 	public void run() {
 		System.out.println("Started...");
 		try {
-			Thread.sleep(1000);
+			Thread.sleep(100);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
