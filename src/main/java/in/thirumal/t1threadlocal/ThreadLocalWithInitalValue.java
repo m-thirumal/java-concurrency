@@ -4,7 +4,7 @@
 package in.thirumal.t1threadlocal;
 
 /**
- * @author thirumal
+ * @author Thirumal
  *
  */
 public class ThreadLocalWithInitalValue {
