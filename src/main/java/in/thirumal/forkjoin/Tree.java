@@ -7,7 +7,7 @@ import java.io.Serializable;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @author thirumal
+ * @author Thirumal
  *
  */
 public class Tree implements Serializable {
