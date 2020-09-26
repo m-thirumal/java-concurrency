@@ -27,7 +27,6 @@ public class Tree implements Serializable {
 	
 	private String treeName;
 	private int fruitCount;
-	private String fruitPicker;
 	
 	public Tree(String treeName) {
 		super();
@@ -38,7 +37,7 @@ public class Tree implements Serializable {
 	public int pickFruit(String fruitPicker) {
 		try {
 			//System.out.printf("%s started picking apples from %s \n", workerName, treeLabel);
-			TimeUnit.SECONDS.sleep(1);
+			TimeUnit.SECONDS.sleep(3);
 			System.out.printf("%s picked %d 🍏s from %s \n", fruitPicker, fruitCount, treeName);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
