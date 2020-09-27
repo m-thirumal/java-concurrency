@@ -55,9 +55,8 @@ class WorkerClass {
 			t1.join();
 			t2.join();
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
+		
 		System.out.println("Duration: " + Duration.between(startTime, LocalTime.now())); 
 		System.out.println("List 1 size: " + list1.size());
 		System.out.println("List 2 size: " + list2.size());

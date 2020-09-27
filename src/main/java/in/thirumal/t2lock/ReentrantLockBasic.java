@@ -4,7 +4,9 @@
 package in.thirumal.t2lock;
 
 import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantLock;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 /**
  * @author Thirumal
@@ -42,6 +44,10 @@ class Runner {
 	int count = 0;
 	
 	private Lock lock = new ReentrantLock();
+	
+	private ReadWriteLock readWriteLock = new ReentrantReadWriteLock();
+	private Lock writeLock = readWriteLock.writeLock(); //Only one thread is allowed
+	private Lock readLock = readWriteLock.readLock(); //More than one threads are allowed
 	
 	private void increment() {
 		for (int i = 0; i < 10000; i++) {
