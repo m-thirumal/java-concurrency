@@ -3,7 +3,7 @@
  */
 package in.thirumal.forkjoin;
 
-import java.util.List;
+import java.util.Arrays;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ForkJoinPool;
 
@@ -17,25 +17,21 @@ public class ForkJoinbasic {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		Tree[] trees = Tree.newTree(6);
+		AppleTree[] trees = AppleTree.newTreeGranden(6);
+		Callable<Void> applePicker1 = pickApplesFromTree(0, 2, trees, "Thirumal");
+		Callable<Void> applePicker2 = pickApplesFromTree(2, 4, trees, "Tamil Vendhan");
+		Callable<Void> applePicker3 = pickApplesFromTree(4, 6, trees, "K");
 		
-		Callable<Void> fruitPicker1 = createFruitPicker(trees, 0, 2, "Thirumal");
-		Callable<Void> fruitPicker2 = createFruitPicker(trees, 2, 4, "Carol");
-		Callable<Void> fruitPicker3 = createFruitPicker(trees, 4, 6, "Jasmine");
-		
-		//Fork
-		ForkJoinPool.commonPool().invokeAll(List.of(fruitPicker1, fruitPicker2, fruitPicker3));
-		//
-		System.out.println("All fruites are picked");
+		ForkJoinPool.commonPool().invokeAll(Arrays.asList(applePicker1, applePicker2, applePicker3));
+		System.out.println("All apples are picked...");
 	}
 	
-	public static Callable<Void> createFruitPicker(Tree[] trees, int fromIndexInclusive, int toIndexExclusive, String picker ) {
+	public static Callable<Void> pickApplesFromTree(int startInclusive, int endExclusive, AppleTree[] trees, String worker) {
 		return () -> {
-			for (int i = fromIndexInclusive; i <toIndexExclusive; i++) {
-				trees[i].pickFruit(picker);
-			}
-			return null;
-		};		
+		for (int i = startInclusive ; i < endExclusive; i++) {
+			trees[i].pickApples(worker);
+		}
+		return null;	
+		};
 	}
-
 }

@@ -21,7 +21,7 @@ public class ForkJoinRecursiveTask {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		Tree[] trees = Tree.newTree(12);
+		AppleTree[] trees = AppleTree.newTreeGranden(12);
 		ForkJoinPool forkJoinPool = ForkJoinPool.commonPool();
 		
 		PickFruitTask pickFruitTask = new PickFruitTask(trees, 0, trees.length - 1);
@@ -67,13 +67,13 @@ class PickFruitTask extends RecursiveTask<Integer> { //Use "RecursiveAction" if 
 	 * 
 	 */
 	private static final long serialVersionUID = 5422064475206899697L;
-	private Tree[] trees;
+	private AppleTree[] trees;
 	private int startInclusive;
 	private int endInclusive;
 	
 	private int threashold = 2;
 
-	public PickFruitTask(Tree[] trees, int startInclusive, int endInclusive) {
+	public PickFruitTask(AppleTree[] trees, int startInclusive, int endInclusive) {
 		this.trees = trees;
 		this.startInclusive = startInclusive;
 		this.endInclusive = endInclusive;
@@ -102,7 +102,7 @@ class PickFruitTask extends RecursiveTask<Integer> { //Use "RecursiveAction" if 
 	
 	protected Integer doCompute() {
 		return IntStream.rangeClosed(startInclusive, endInclusive)
-				.map(i->trees[i].pickFruit())
+				.map(i->trees[i].pickApples(null))
 				.sum();
 	}
 }
