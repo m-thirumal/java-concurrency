@@ -1,7 +1,25 @@
 # java-concurrency
 
-Repo for Learning and for quick reference
+### What is Process?
 
+* A process is a `unit of work` in the Operating System
+* A process is a instance of program loaded in to memory
+
+### What is Preemptive & Non-Preemptive?
+
+**Preemptive** is non-blocking task, 
+
+**Non-Preemptive**  is blocking task. 
+
+
+### What is Thread?
+
+
+
+
+
+
+* [Thread Life Cycle](ThreadLifecycle.md)
 1.  [Basic](src/main/java/in/thirumal/t1basic)
 2.  [Synchronize](src/main/java/in/thirumal/t2Synchronize)
 3.  [Lock](src/main/java/in/thirumal/t2lock)
