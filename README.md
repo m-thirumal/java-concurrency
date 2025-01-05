@@ -51,7 +51,7 @@ Synchronization is the coordination or control of threads to ensure the `consite
 In concurrent/parallel task, shared resources(like variable/data structures) might be accessed or modified by multiple threads. Without `Synchroniztion`, race conditions can occur, leading to the incorrect result.
 
 
-[Synchronize.java](../src/main/java/in/thirumal/Synchronize/Synchronize.java ':include :type=code')
+[Synchronize.java](src/main/java/in/thirumal/Synchronize/Synchronize.java ':include :type=code')
 
 
 ### What is Thread?
