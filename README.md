@@ -14,3 +14,12 @@ Repo for Learning and for quick reference
 10. [Complete Future](src/main/java/in/thirumal/t1completablefuture)
 11. [Thread safe Data Structure](src/main/java/in/thirumal/t1threadsafedatastructure)
 12. [Reactive](src/main/java/in/thirumal/t1reactive)
+
+
+# Docsify
+
+This project has `symlink` for `src` folder to embed code.
+
+```bash
+ln -s ../src docs/src
+```

@@ -50,11 +50,8 @@ Synchronization is the coordination or control of threads to ensure the `consite
 * `Why it’s needed:`
 In concurrent/parallel task, shared resources(like variable/data structures) might be accessed or modified by multiple threads. Without `Synchroniztion`, race conditions can occur, leading to the incorrect result.
 
-```java
-{{ include('src/main/java/in/thirumal/Synchronize/Synchronize.java') }}
-```
 
-//[Synchronize](/src/main/java/in/thirumal/Synchronize/Synchronize.java ':include')
+[Synchronize.java](../src/main/java/in/thirumal/Synchronize/Synchronize.java ':include :type=code')
 
 
 ### What is Thread?
