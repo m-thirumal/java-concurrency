@@ -7,9 +7,54 @@
 
 ### What is Preemptive & Non-Preemptive?
 
-**Preemptive** is non-blocking task, 
+**Preemptive** is non-blocking task. 
 
 **Non-Preemptive**  is blocking task. 
+
+# Concurrency
+
+- Performing multiple task within same time frame but not necessarily executing at the exact same moment.
+
+# Parallelism
+
+- Executing multiple task at exact time by utilizing the multiple cores or processors.
+
+```java
+IntStream.range(0, 100).parallel().forEach(i -> {
+        System.out.println(Thread.currentThread().getName() + " processing number: " + i);
+       });
+```
+
+Output:
+```bash
+ForkJoinPool.commonPool-worker-6 processing number: 40
+ForkJoinPool.commonPool-worker-6 processing number: 41
+ForkJoinPool.commonPool-worker-6 processing number: 42
+ForkJoinPool.commonPool-worker-2 processing number: 90
+ForkJoinPool.commonPool-worker-4 processing number: 15
+main processing number: 65
+ForkJoinPool.commonPool-worker-3 processing number: 56
+ForkJoinPool.commonPool-worker-5 processing number: 43
+ForkJoinPool.commonPool-worker-6 processing number: 37
+ForkJoinPool.commonPool-worker-2 processing number: 91
+ForkJoinPool.commonPool-worker-1 processing number: 31
+ForkJoinPool.commonPool-worker-4 processing number: 16
+ForkJoinPool.commonPool-worker-7 processing number: 6
+......
+```
+
+# Synchronization
+
+Synchronization is the coordination or control of threads to ensure the `consitency` when acessing shared resources.
+
+* `Why it’s needed:`
+In concurrent/parallel task, shared resources(like variable/data structures) might be accessed or modified by multiple threads. Without `Synchroniztion`, race conditions can occur, leading to the incorrect result.
+
+```java
+{{ include('src/main/java/in/thirumal/Synchronize/Synchronize.java') }}
+```
+
+//[Synchronize](/src/main/java/in/thirumal/Synchronize/Synchronize.java ':include')
 
 
 ### What is Thread?

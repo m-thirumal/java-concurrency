@@ -20,7 +20,6 @@ public class SimpleThread {
 		System.out.println("Thread state Before Start => " + e1.getState());
 		e.start();
 		e1.start();
-	
 		try {
 			e.join();
 			e1.join();
