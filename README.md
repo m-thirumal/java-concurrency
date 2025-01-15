@@ -18,6 +18,7 @@
 # Parallelism
 
 - Executing multiple task at exact time by utilizing the multiple cores or processors.
+- [Basic Understanding](src/main/java/in/thirumal/parallelism/Definition.md)
 
 ```java
 IntStream.range(0, 100).parallel().forEach(i -> {
