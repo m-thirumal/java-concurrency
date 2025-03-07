@@ -15,9 +15,18 @@
 
 - Performing multiple task within same time frame but not necessarily executing at the exact same moment.
 
+Concurrency in a CPU is achieved through  `context switching`.
+
+#### How it works
+
+* Context Saving: When CPU switches from one task to another, it saves the current task's state in the memory(Eg: Program counter, registry..)
+* Context Loading: The CPU then loads the context of the next task and continues executing it.
+* Rapid Switching: The CPU repeats this process, switching between tasks so quickly that it seems like they are running simultaneously.
+
 # Parallelism
 
 - Executing multiple task at exact time by utilizing the multiple cores or processors.
+- To achieve parallelism, an application divides its tasks into smaller, independent subtasks. These subtasks are distributed across multiple `CPUs, CPU cores, GPU cores, or similar processing units`, allowing them to be processed in parallel.
 - [Basic Understanding](src/main/java/in/thirumal/parallelism/Definition.md)
 
 ```java

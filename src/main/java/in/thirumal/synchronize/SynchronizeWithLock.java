@@ -1,4 +1,4 @@
-package in.thirumal.Synchronize;
+package in.thirumal.synchronize;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

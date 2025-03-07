@@ -1,7 +1,7 @@
 /**
  * 
  */
-package in.thirumal.Synchronize;
+package in.thirumal.synchronize;
 
 import java.time.Duration;
 import java.time.LocalTime;

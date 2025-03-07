@@ -22,13 +22,13 @@ public class ThreadLocalBasic {
 		ThreadLocal<String> threadLocal = new ThreadLocal<>();
 		
 		Thread thread1 = new Thread(()-> {
-			threadLocal.set("Hi Thirumal from Thread - 1");
+			threadLocal.set("From Thread - 1");
 			System.out.println("Thread Local Value in Thread 1: " + threadLocal.get());
 		});
 		
 		Thread thread2 = new Thread(()-> {
 			System.out.println("Thread Local Value in Thread 2: " + threadLocal.get());
-			threadLocal.set("Hi Thirumal from Thread - 2");
+			threadLocal.set("From Thread - 2");
 			System.out.println("Thread Local Value in Thread 2: " + threadLocal.get());
 			threadLocal.remove();
 			System.out.println("After remove from thread 2 : " + threadLocal.get());
