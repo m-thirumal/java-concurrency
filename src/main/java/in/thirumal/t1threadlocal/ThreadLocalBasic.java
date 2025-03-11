@@ -19,16 +19,15 @@ public class ThreadLocalBasic {
 		 * Java ThreadLocal class, provides a simple way to make code thread safe
 		 */
 	
-		ThreadLocal<String> threadLocal = new ThreadLocal<>();
-		
+		ThreadLocal<Integer> threadLocal = ThreadLocal.withInitial(() -> 0);
+		System.out.println("Initial value : " + threadLocal.get());
 		Thread thread1 = new Thread(()-> {
-			threadLocal.set("From Thread - 1");
+			threadLocal.set(threadLocal.get() + 1);
 			System.out.println("Thread Local Value in Thread 1: " + threadLocal.get());
 		});
 		
 		Thread thread2 = new Thread(()-> {
-			System.out.println("Thread Local Value in Thread 2: " + threadLocal.get());
-			threadLocal.set("From Thread - 2");
+			threadLocal.set(threadLocal.get() + 1);
 			System.out.println("Thread Local Value in Thread 2: " + threadLocal.get());
 			threadLocal.remove();
 			System.out.println("After remove from thread 2 : " + threadLocal.get());

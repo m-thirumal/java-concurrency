@@ -26,12 +26,13 @@ public class ForkJoinbasic {
 		System.out.println("All apples are picked...");
 	}
 	
-	public static Callable<Void> pickApplesFromTree(int startInclusive, int endExclusive, AppleTree[] trees, String worker) {
+	public static Callable<Void> pickApplesFromTree(int startInclusive, int endExclusive, AppleTree[] trees,
+			String worker) {
 		return () -> {
-		for (int i = startInclusive ; i < endExclusive; i++) {
-			trees[i].pickApples(worker);
-		}
-		return null;	
+			for (int i = startInclusive; i < endExclusive; i++) {
+				trees[i].pickApples(worker);
+			}
+			return null;
 		};
 	}
 }
