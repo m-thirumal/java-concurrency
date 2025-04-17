@@ -5,6 +5,7 @@ package in.thirumal.forkjoin;
 
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.RecursiveAction;
+import java.util.concurrent.TimeUnit;
 
 /**
  * 
@@ -24,7 +25,7 @@ public class ForkJoinRecursiveAction {
 		System.out.println("Is shutdown : " + forkJoinPool.isShutdown());
 		System.out.println("Is Terminiating : " + forkJoinPool.isTerminating());
 		try {
-			Thread.sleep(1000);
+			forkJoinPool.awaitTermination(10, TimeUnit.SECONDS);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
