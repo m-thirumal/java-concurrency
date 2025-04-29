@@ -81,6 +81,6 @@ In concurrent/parallel task, shared resources(like variable/data structures) mig
 7.  [Seamaphore](src/main/java/in/thirumal/t6semaphore)
 8.  [Callable & Future](src/main/java/in/thirumal/t1callablefuture)
 9.  [Fork Join](src/main/java/in/thirumal/forkjoin)
-10. [Complete Future](src/main/java/in/thirumal/t1completablefuture)
+10. [Complete Future](src/main/java/in/thirumal/t1completablefuture/Basic.md)
 11. [Thread safe Data Structure](src/main/java/in/thirumal/t1threadsafedatastructure)
 12. [Reactive](src/main/java/in/thirumal/t1reactive)
