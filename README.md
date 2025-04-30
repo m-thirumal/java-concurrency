@@ -4,6 +4,11 @@
 
 * A process is a `unit of work` in the Operating System
 * A process is a instance of program loaded in to memory
+* A process can have multiple thread running concurrently/parllel, sharing the same memory and resource of process.
+
+## What is Thread
+
+* A thread is the smallest unit of execution with in the process.
 
 ### What is Preemptive & Non-Preemptive?
 
@@ -65,10 +70,6 @@ In concurrent/parallel task, shared resources(like variable/data structures) mig
 
 
 ### What is Thread?
-
-
-
-
 
 
 * [Thread Life Cycle](ThreadLifecycle.md)
