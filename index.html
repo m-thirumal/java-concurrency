@@ -46,7 +46,14 @@
               url: htmlUrl,
               title: title,
           },
-      }
+      },
+      plugins: [
+    	  function (hook) {
+    	        hook.doneEach(function () {
+    	          Prism.highlightAll(); // force re-highlight after include
+    	        });
+    	      }
+      ]
     }
   </script>
   <script>

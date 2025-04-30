@@ -58,3 +58,66 @@ Real-Time use cases:
 * `Task Chaining:` Simplifies complex workflows.
 * `Resilience:` Handles failures gracefully with timeouts and exception handling.
 * `Scalability:` Reduces thread blocking, enhancing resource utilization.
+
+# RealTime UseCases
+
+## Orchestrating Microservices Without Blocking (Event-Driven Architecture)
+
+* Traditional REST-based microservices often rely on blocking calls, which waste system resource
+* Using CompletableFuture, we can orchestrate multiple microservices asynchronously, improving latency and throughput.
+
+[EDA.java](EDA.java ':include :type=code')
+
+## Async Logging to Improve Performance (Batch Processing in Large Systems)
+
+* Logging synchronously can slow down an application, especially under heavy load.
+* Using CompletableFuture, we can log asynchronously in batches, improving overall system performance.
+
+[AsyncLogger.java](AsyncLogger.java ':include :type=code')
+
+#### Key Takeaways:
+
+✅ Reduces blocking in high-performance applications.
+✅ Batches logs efficiently, preventing I/O bottlenecks.
+✅ Improves system responsiveness by logging in a separate thread pool.
+
+
+
+## Timeout with Circuit Breaker for Resiliency (Preventing Failures from Propagating)
+
+* Unresponsive services can slow down the entire system.
+* A Circuit Breaker pattern prevents repeated calls to a failing service by returning a default response after a timeout.
+
+[ExceptionResilient.java](ExceptionResilient.java ':include :type=code')
+
+#### Key Takeaways:
+✅ Prevents cascading failures in distributed systems.
+✅ Enhances fault tolerance by providing fallback responses.
+✅ Prepares for integration with Resilience4j Circuit Breaker.
+
+## Streaming Large Data Sets Asynchronously (Big Data Processing)
+
+* Big data applications process massive datasets, which can’t be loaded into memory all at once.
+
+* Using CompletableFuture, we can stream data in batches asynchronously.
+
+[AsyncBigDataProcessing.java](AsyncBigDataProcessing.java ':include :type=code')
+
+#### Key Takeaways:
+
+✅ Efficient data processing in real-time systems.
+✅ Avoids memory overload by processing in batches.
+✅ Scales well for high-volume, real-time analytics.
+
+## Real-time AI Model Predictions (Non-blocking Inference Calls)
+
+* AI/ML models take time to make predictions.
+* Instead of blocking the main thread, we can run model inference asynchronously and return the result when ready.
+
+[AsyncBigDataProcessing.java](AsyncBigDataProcessing.java ':include :type=code')
+
+#### Key Takeaways:
+
+✅ Enhances AI-powered applications with non-blocking inference calls.
+✅ Prevents UI freezes in real-time applications.
+✅ Scalable for high-load recommendation engines.
