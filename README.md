@@ -75,7 +75,7 @@ In concurrent/parallel task, shared resources(like variable/data structures) mig
 * [Thread Life Cycle](ThreadLifecycle.md)
 1.  [Basic](src/main/java/in/thirumal/t1basic)
 2.  [Synchronize](src/main/java/in/thirumal/t2Synchronize)
-3.  [Lock](src/main/java/in/thirumal/t2lock)
+3.  [Lock](src/main/java/in/thirumal/t2lock/lock.md)
 4.  [Pool-Executor](src/main/java/in/thirumal/t2poool)
 5.  [ThreadLocal](src/main/java/in/thirumal/t1threadlocal)
 6.  [DeadLock](src/main/java/in/thirumal/t5deadlock)
