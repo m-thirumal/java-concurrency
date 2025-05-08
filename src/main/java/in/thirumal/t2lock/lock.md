@@ -80,10 +80,62 @@ A non-reentrant lock doesn't allow the same thread to acquire the lock again if 
 
 This leads to a self-deadlock.
 
+#### Fairness Policy
+
+`Problem with synchronized:` The synchronized keyword does not provide a fairness mechanism. Threads waiting for a lock may not acquire it in the order they requested it, leading to thread starvation.
+
+High-priority threads continuously dominate the lock acquisition, preventing lower-priority threads from accessing shared resources.
+
+In Reentrant, it enforces `FIFO` ordering.
+
+[StarvationFairnessExample.java](StarvationFairnessExample.java ':include :type=code')
+
+
 ### Deadlock Prevention and Avoidance
 
+ReentrantLock provides mechanisms that help avoid deadlocks. With the `tryLock()` method, threads can attempt to acquire a lock without blocking indefinitely, thus avoiding situations where threads could be stuck waiting for a lock. You can also set a timeout when trying to acquire the lock, so if the lock isn't available within the specified time, the thread can back off or retry.
 
+```java
+ReentrantLock lock = new ReentrantLock();
+boolean isLocked = false;
+try {
+    isLocked = lock.tryLock(1000, TimeUnit.MILLISECONDS);
+    if (isLocked) {
+        // Critical section
+    } else {
+        System.out.println("Could not acquire the lock within the timeout.");
+    }
+} catch (InterruptedException e) {
+    Thread.currentThread().interrupt();
+} finally {
+    if (isLocked) {
+        lock.unlock();
+    }
+}
+```
 
+#### Lock Downgrading
+
+A ReentrantLock allows the thread to acquire the lock multiple times without causing deadlock, making it useful when you need to downgrade from a higher level of synchronization to a lower one. This allows threads to release some locks while keeping others intact
+
+```java
+ReentrantLock lock = new ReentrantLock();
+lock.lock(); // First lock
+try {
+    // Critical section
+    lock.lock(); // Re-locking
+    try {
+        // Nested critical section
+    } finally {
+        lock.unlock();
+    }
+} finally {
+    lock.unlock();
+}
+
+```
+ demonstrates how a thread holding a ReentrantLock can re-enter the lock and unlock it step by step without causing deadlock
+ 
 #### ReadWriteLock
 
 [ReentrantReadWriteLockBasic.java](ReentrantReadWriteLockBasic.java ':include :type=code')
