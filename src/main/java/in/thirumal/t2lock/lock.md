@@ -42,6 +42,48 @@ A ReentrantLock is a synchronization mechanism that allows threads to have more 
 * `StampedLock`:  Introduces optimistic locking, allowing threads to perform reads without acquiring a lock initially and only acquiring the lock if the data is modified. This can provide better performance in cases where writes are infrequent.
 
 
+### Reentrancy
+A thread holding a ReentrantLock can re-acquire it without blocking.
+
+The ability of a thread to re-acquire a ReentrantLock without blocking is crucial in certain scenarios where recursive or nested locking is required. This is called re-entrancy.
+
+```Java
+class Account {
+    private final ReentrantLock lock = new ReentrantLock();
+    private double balance;
+
+    public void deposit(double amount) {
+        lock.lock();
+        try {
+            balance += amount;
+            logTransaction(amount);
+        } finally {
+            lock.unlock();
+        }
+    }
+
+    private void logTransaction(double amount) {
+        lock.lock();  // Reentrant: same thread can re-acquire the lock
+        try {
+            System.out.println("Deposited: " + amount);
+        } finally {
+            lock.unlock();
+        }
+    }
+}
+
+```
+
+If, it's not a reentrant lock, it would lead `deadlock (i.e self-deadlock)`.
+
+A non-reentrant lock doesn't allow the same thread to acquire the lock again if it already holds it. So, if a thread tries to lock() again before unlock()ing the previous one, it will block indefinitely, waiting for itself to release the lock — which is impossible unless it continues executing.
+
+This leads to a self-deadlock.
+
+### Deadlock Prevention and Avoidance
+
+
+
 #### ReadWriteLock
 
 [ReentrantReadWriteLockBasic.java](ReentrantReadWriteLockBasic.java ':include :type=code')
@@ -77,3 +119,5 @@ new Thread(() -> {
 }).start();
 ```
 This allows the consumer thread to wait until the producer thread signals it, ensuring proper coordination between threads.
+
+
