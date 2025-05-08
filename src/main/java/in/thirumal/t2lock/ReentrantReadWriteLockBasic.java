@@ -5,14 +5,13 @@ package in.thirumal.t2lock;
 
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReadWriteLock;
-import java.util.concurrent.locks.ReentrantLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 /**
  * @author Thirumal
  *
  */
-public class ReentrantLockBasic {
+public class ReentrantReadWriteLockBasic {
 
 	/**
 	 * @param args
@@ -43,7 +42,7 @@ class Runner {
 	
 	int count = 0;
 	
-	private Lock lock = new ReentrantLock();
+//	private Lock lock = new ReentrantLock();
 	
 	private ReadWriteLock readWriteLock = new ReentrantReadWriteLock();
 	private Lock writeLock = readWriteLock.writeLock(); //Only one thread is allowed
@@ -56,22 +55,32 @@ class Runner {
 	}
 	
 	public void firstThreadMethod() {
-		lock.lock();
+		writeLock.lock();
 		try {
 			increment();
 		} finally {
-			lock.unlock();
+			writeLock.unlock();
 		}
 	}
 	
 	public void secondThreadMethod() {
-		lock.lock();
+		writeLock.lock();
 		try {
 			increment();
 		} finally {
-			lock.unlock();
+			writeLock.unlock();
 		}
 	}
+	
+	public void displayCount() {
+	    readLock.lock();
+	    try {
+	        System.out.println("Count is: " + count);
+	    } finally {
+	        readLock.unlock();
+	    }
+	}
+
 	
 	public void finished( ) {
 		System.out.println("Total count: " + count);
